@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.url">jdbc:mysql://127.0.0.1:3306/spring_javabrains</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- DB schema will be updated if needed -->
+         <property name="hbm2ddl.auto">update</property>
+
+        <!-- Second level cache configuration -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <!-- Enable query cache -->
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <!-- Names the annotated entity class -->
+        <mapping class="org.javabrains.dto.User"/>
+        <mapping class="org.javabrains.dto.Vehicle"/>
+        <mapping class="org.javabrains.dto.Book"/>
+        <mapping class="org.javabrains.dto.House"/>
+
+        <mapping class="org.javabrains.dto.UserDetails"/>
+        <mapping class="org.javabrains.dto.FourWheelVehicle"/>
+        <mapping class="org.javabrains.dto.TwoWheelVehicle"/>
+
+    </session-factory>
+
+</hibernate-configuration>
